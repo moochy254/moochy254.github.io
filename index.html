@@ -27,7 +27,7 @@
                             <li><a href="">ACADEMICS</a></li>
                             <li><a href="">ADMISSIONS</a></li>
                             <li><a href="">SCHOOL PORTAL</a></li>
-                            <li><a href="">CONTACT US</a></li>
+                            <li><a href="./gallery.html">GALLERY</a></li>
                         </ul>
                     </div>
                     <i class="fa fa-bars" onclick="showmenu()"></i>
@@ -111,11 +111,7 @@
 
             <h1>SCHOOL GALLERY</h1>
             <p>An impressive representation of the world's future leaders.</p>
-
-            <div class="row-3">
-                <div class="col-pics1">
-                </div>
-                <div class="col-pics2">
+            <a href="./gallery.html" class="gallery-btn">open gallery</a>
             
                     <div class="layer2"></div>
                 </div>
@@ -156,7 +152,7 @@
     </footer>
     -->
 
-    <Sction class="footer">
+    <Section class="footer">
         <div class="btm-links">
             <ul>
                 <li><a href="">FACEBOOK</a></li>
@@ -176,11 +172,14 @@
     <script>
         var navlinks = document.getElementById("navlinks");
 
-        function showmenu(){
-            navlinks.style.right="0"
+        function showmenu(){  
+         navlinks.style.right="0px"
+         navlinks.style.display="flex"
         }
         function hidemenu(){
             navlinks.style.right="-200px"
+            navlinks.style.display="none"
+            
         }
     </script>
     

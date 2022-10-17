@@ -7,9 +7,6 @@
         flex-direction: column;
     }
 }
-.page{
-    height: 3978px;
-}
         /*LOGO SCRIPT*/
 .header{
     height: 120px;
@@ -63,21 +60,20 @@ nav .fa{
 }
 @media(max-width: 700px){
 
-    .introduction{
-        font-size: 20px;
-    }
     .nav-links ul li{
         display: block;
     }
     .nav-links{
+        display:none;
         position: absolute;
-        background: purple;
+        background:rgba(8, 145, 213,0.7);
+        
         height: 100vh;
         width: 200px;
         top: 0;
-        right: -200px;
+        right:0vw;
         text-align: left;
-        z-index: 2;
+        z-index: 1;
         transition: 1s;
     }
     nav .fa{
@@ -123,12 +119,12 @@ nav .fa{
     position: relative;
     display: inline-block;
 }
-@media(max-width){
+@media(max-width:700px){
     .welcometxt{
-        font-size: 20px;
+        font-size: 35px;
     }
-    h1{
-        font-size: 1px;
+    .motto{
+        font-size: 20px;
     }
     .introduction{
         flex-direction: column;
@@ -137,7 +133,6 @@ nav .fa{
 }
         /* ABOUT THE SCHOOL */
 .content{
-    height: 1284px;
     text-align: center;
     padding-top: 100px;
 
@@ -201,7 +196,7 @@ p{
     display: inline-block;
     border-radius: 10px;
 }
-@media(max-width:700px){
+@media(min-width:700px){
     .content{
         flex-direction: column;
     }
@@ -209,7 +204,6 @@ p{
        /* INVENTORY   */
 
 .inventory{
-    height: 1290px;
     text-align: center;
     margin-top:100px;;
 }
@@ -254,6 +248,7 @@ transition: 0.5s;
     box-shadow: 0 0 50px 0px rgba(0 , 0, 0, 0.3);
     cursor: pointer;
 }
+
 .col-pics3{
     border-radius: 10px;
     height: 300px;
@@ -293,7 +288,7 @@ height: 300px;
 flex-basis: 32%;
 position: relative;
 overflow: hidden;
-background: url(/images/siNoMp.jpg);
+background: url(/images/school\ bus.jfif);
 padding-right: 10px;
 background-size: 100%;
 background-repeat: no-repeat;
@@ -348,7 +343,8 @@ transition: 0.5s;
     background-size: cover;
     border-radius: 10px;
     text-align: center;
-    padding: 100px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }   
 .row-4 h1{
     color:saddlebrown;
@@ -373,6 +369,26 @@ transition: 0.5s;
     position:relative;
     cursor: pointer;
 }
+.gallery-btn{
+    display: inline-block; 
+    text-decoration: none;
+    color: maroon;
+    border-color: maroon;
+    border: 1px solid;
+    padding: 12px 34px;
+    font-size: 15px;
+    background: transparent;
+    position:relative;
+    cursor: pointer;
+
+}
+.gallery-btn:hover{
+    border: 1px solid;
+    border-color: cadetblue;
+    background: skyblue;
+    transition: 0.8s;
+
+}
 .contact-btn:hover{
     border: 1px solid;
     border-color: cadetblue;
@@ -380,8 +396,22 @@ transition: 0.5s;
     transition: 0.8s;
 }
 @media(max-width:700px){
+    .row-1{
+        flex-direction: column;
+        align-items: center;
+    }
+    .row-2{
+        flex-direction: column;
+        align-items: center;
+    }
     .inventory{
         flex-direction: column;
+        display:inline-flex;
+    }
+    .row-3{
+        
+        flex-direction: column;
+
     }
 }
 
@@ -418,9 +448,14 @@ transition: 0.5s;
     text-align: center;
     color: darkgray;
 }
-@media(max-width){
+@media(max-width:700px){
     .footer{
         flex-direction: column;
+    }
+    .row-4{
+        background-size: cover;
+        flex-direction: column;
+        position:relative;
     }
 }
 

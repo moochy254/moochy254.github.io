@@ -1,0 +1,217 @@
+@import url(https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css);
+.body{
+    background-color: beige;
+    margin: 0;
+}
+@media(max-width:700px){
+    .body{
+        flex-direction: column;
+        width: 100vw;
+    }
+    .page{
+        width: 100vw;
+        height: 100vh;
+    }
+}
+        /*LOGO SCRIPT*/
+.header{
+    height: 120px;
+    background-color: saddlebrown;
+    margin: 0;
+}
+.header-inner{
+    height: 120px ;
+}
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+} 
+nav img{
+    border-radius: 100%;
+    height: 70px;
+    align-items: flex-start;
+}
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+.nav-links ul li a{
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 15px;
+}
+.nav-links ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background:skyblue;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.nav-links ul li:hover::after{
+    width: 100%;  
+}
+
+nav .fa{
+    display: none;
+}
+@media(max-width: 700px){
+
+
+    .nav-links{
+        display: none;
+        position: absolute;
+        background: rgba(8, 145, 213,0.97);
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right:0vw;
+        text-align: left;
+        z-index: 1;
+        transition: 1s;
+    }
+    .nav-links ul li{
+        display: block;
+    }
+    nav .fa{
+        display: block;
+        color: aliceblue;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+    .nav-links ul{
+        padding: 30px;
+
+    }
+}
+.row-1{
+    height: 350px;
+    justify-content: space-between;
+    display: flex;
+    margin-top: 10px;
+}
+.picscol-1{
+    border-radius: 10px;
+    height: 300px;
+    flex-basis: 32%;
+    position: relative;
+    overflow: hidden;
+    background: url(./images/religion.jpg);
+    padding-right: 10px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+}
+.picscol-1:hover{
+    box-shadow: 0 0 50px 0px rgba(0 , 0, 0, 0.3);
+    cursor: pointer;
+}
+.picscol-2{
+    border-radius: 10px;
+    height: 300px;
+    flex-basis: 32%;
+    position: relative;
+    overflow: hidden;
+    background: url(./images/students.jpg);
+    background-size: cover;
+    padding-right: 10px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+}
+.picscol-2:hover{
+    box-shadow: 0 0 50px 0px rgba(0 , 0, 0, 0.3);
+    cursor: pointer;
+}
+.picscol-3{
+    border-radius: 10px;
+    height: 300px;
+    flex-basis: 32%;
+    position: relative;
+    overflow: hidden;
+    background: url(./images/teachers.jfif);
+    padding-right: 10px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+}
+.picscol-3:hover{
+    box-shadow: 0 0 50px 0px rgba(0 , 0, 0, 0.3);
+    cursor: pointer;
+}
+.row-2{
+    
+    justify-content: space-between;
+    display: flex;
+    margin-top: 10px;
+}
+.picscol-4{
+    border-radius: 10px;
+    height: 300px;
+    flex-basis: 32%;
+    position: relative;
+    overflow: hidden;
+    background: url(./images/school\ bus.jfif);
+    padding-right: 10px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+}
+.picscol-4:hover{
+    box-shadow: 0 0 50px 0px rgba(0 , 0, 0, 0.3);
+    cursor: pointer;
+}
+.picscol-5{
+    border-radius: 10px;
+    height: 300px;
+    flex-basis: 32%;
+    position: relative;
+    overflow: hidden;
+    background: url(./images/assembly.jpg);
+    padding-right: 10px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+}
+.picscol-5:hover{
+    box-shadow: 0 0 50px 0px rgba(0 , 0, 0, 0.3);
+    cursor: pointer;
+}
+.picscol-6{
+    border-radius: 10px;
+    height: 300px;
+    flex-basis: 32%;
+    position: relative;
+    overflow: hidden;
+    background: url(./images/amenities.jpg);
+    padding-right: 10px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+}
+.picscol-6:hover{
+    box-shadow: 0 0 50px 0px rgba(0 , 0, 0, 0.3);
+    cursor: pointer;
+}
+@media(max-width:700px) {
+
+    .row-1{
+        height: 800px;
+        flex-direction: column;
+    }
+    .row-2{
+        height: 800px;
+        flex-direction: column;
+    }
+
+}
