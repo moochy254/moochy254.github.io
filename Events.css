@@ -31,8 +31,7 @@
 }
 #nav-logo img{
     height: 100px;
-    padding-top: 15px;
-    padding-right: -130px;
+    padding: 15px;
     align-items: center;
     justify-content: center;
     -webkit-animation: spin 0.5s linear infinite;
