@@ -31,12 +31,12 @@
 }
 #nav-logo img{
     height: 100px;
-    padding: 15px;
+    padding: 10px;
     align-items: center;
     justify-content: center;
     -webkit-animation: spin 0.5s linear infinite;
     -moz-animation: spin 0.5s linear infinite;
-    animation: spin 20s linear infinite;
+    animation: spin 7s ease-in-out alternate-reverse infinite;
 }
 @-webkit-keyframes spin{
     100%{-webkit-transform: rotate(360deg);}
@@ -65,6 +65,18 @@
 #nav-btn ul li{
     flex: 10px;
 }
+#nav-btn ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background:whitesmoke;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+#nav-btn ul li:hover::after{
+    width: 100%;  
+}
 .dialogue{
     height: 690px;
     display: flex;
@@ -90,6 +102,11 @@
 .Reason img{
     width: 100%;
     position: relative;
+    right: 10px;
+    border-top-left-radius: 29px;
+    border-top-right-radius: 29px;
+    border-bottom-right-radius: 29px;
+    border-bottom-left-radius: 29px;
 
 }
 #Reason{
@@ -99,12 +116,45 @@
 .favourite{
     height: 500px;
 }
+#comment{
+    height: 400px;
+}
 #comment h1{
+    height: 60px;
     position: absolute;
     color: antiquewhite;
     border-top: 0px;
     left: 310px;
 }
+.commentunder{
+    visibility: hidden;
+    padding-top: 20px;
+    height: 60px;
+}
+.polls{
+    height: 100px;
+    padding-top: 100px;
+    padding-left: 50px;
+    padding-bottom: 20px;
+    padding-right: 50px;
+}
+.poll{
+    height: 100%;
+    width: 50%-100%;
+    border: 5px;
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.poll:hover{
+    background-color: rgb(255, 170, 0);
+}
+.poll:active{
+    transform: translateY(4px);
+}
+
 #comment p{
     position: absolute;
     color: antiquewhite;

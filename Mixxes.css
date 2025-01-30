@@ -36,7 +36,7 @@
     justify-content: center;
     -webkit-animation: spin 0.5s linear infinite;
     -moz-animation: spin 0.5s linear infinite;
-    animation: spin 20s linear infinite;
+    animation: spin 7s ease-in-out alternate-reverse infinite;
 }
 @-webkit-keyframes spin{
     100%{-webkit-transform: rotate(360deg);}
@@ -64,6 +64,18 @@
 }
 #nav-btn ul li{
     flex: 10px;
+}
+#nav-btn ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background:whitesmoke;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+#nav-btn ul li:hover::after{
+    width: 100%;  
 }
 .dialogue{
     height: 690px;
