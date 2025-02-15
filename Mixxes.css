@@ -193,12 +193,7 @@ p {
     font-weight: 400;
     margin: 0px 5px;
 }
-@media (max-width: 768px) { /* Adjust breakpoint as needed */
-
-    .body {
-        /* If you need any specific mobile body styles, add them here */
-    }
-
+@media (max-width: 768px) {
     .nav-bar {
         height: auto;
         padding: 10px;

@@ -194,11 +194,6 @@ p {
     margin: 0px 5px;
 }
 @media (max-width: 768px) { /* Adjust breakpoint as needed */
-
-    .body {
-        /* If you need any specific mobile body styles, add them here */
-    }
-
     .nav-bar {
         height: auto;
         padding: 10px;
