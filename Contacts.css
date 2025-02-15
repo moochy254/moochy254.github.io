@@ -1,3 +1,14 @@
+body {
+    font-family: 'Roboto', sans-serif; /* Example for body text */
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif; /* Example for headings */
+}
+
+p {
+    font-family: 'Open Sans', sans-serif; /* Example for paragraphs */
+}
 .body{
     margin-top: 0%;
     margin-left: 0%;
@@ -38,7 +49,7 @@
     -moz-animation: spin 0.5s linear infinite;
     animation: spin 7s ease-in-out alternate-reverse infinite;
 }
-@-webkit-keyframes spin{
+@keyframes spin{
     100%{-webkit-transform: rotate(360deg);}
 }
 #nav-btn{
@@ -50,12 +61,11 @@
     margin-top: 0%;
     justify-items: center;
     float: inline-end;
-    justify-content:space between;
+    justify-content:space-between;
 }
 #nav-btn ul{
-    list-style: none;
-    color: white;
-    text-decoration: none;
+    display: flex;
+    flex-direction: row;
 }
 #nav-btn ul a{
     list-style: none;
@@ -64,6 +74,18 @@
 }
 #nav-btn ul li{
     flex: 10px;
+    position: relative;
+}
+#nav-btn ul li a{
+    display: flex; /* Use flexbox to align icon */
+    align-items: center; /* Vertically center icon */
+}
+#nav-btn li a i { /* Style the dropdown icon */
+    margin-left: 5px; /* Space between text and icon */
+    transition: transform 0.4s ease; /* Smooth rotation */
+}
+#nav-btn li:hover > a i {  /* > selects direct child */
+    transform: rotate(90deg);
 }
 #nav-btn ul li::after{
     content: '';
@@ -76,6 +98,38 @@
 }
 #nav-btn ul li:hover::after{
     width: 100%;  
+}
+#nav-btn .submenu{
+    display: none; /* Hidden by default */
+    position: absolute; /* Absolute positioning within the li */
+    top: 100%; /* Position below the parent li */
+    left: 0; /* Align with the left edge of the li */
+    background-color: black; /* Submenu background color */
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1; /* Ensure it's above other content */
+    white-space: nowrap; /* Prevent wrapping of submenu items */
+
+}
+.submenu ul {
+    list-style: none;
+    display: block; /* Vertical list in submenu */
+}
+.submenu li {
+    margin: 5px 0; /* Spacing between submenu items */
+}
+.submenu a {
+    color: white;
+    text-decoration: none;
+    display: block; /* Make links fill the width of the submenu */
+    padding: 5px; /* Add some padding to submenu links */
+}
+#nav-btn li:hover .submenu {
+    display: block;
+}
+.submenu a:hover {
+    background-color:black; /* Example hover background */
+    color: lightgray;
 }
 .dialogue{
     height: 690px;
@@ -138,4 +192,144 @@
     letter-spacing: 1px;
     font-weight: 400;
     margin: 0px 5px;
+}
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+
+    /* Navigation Bar */
+    .nav-bar {
+        height: auto; /* Allow nav to take up necessary height */
+        padding: 10px; /* Adjust padding */
+        border-radius: 0; /* Remove border-radius on mobile if you want */
+    }
+
+    #navigation {
+        flex-direction: column; /* Stack logo and nav vertically */
+        align-items: center; /* Center horizontally */
+        height: auto; /* Let it take its height */
+        padding: 10px;
+        border-radius: 0; /* Remove border-radius on mobile if you want */
+
+    }
+
+    #nav-items {
+        flex-direction: column; /* Stack nav items */
+        align-items: center;
+        height: auto;
+    }
+
+    #nav-logo {
+        width: 100%; /* Logo takes full width */
+        text-align: center; /* Center the logo */
+        margin-bottom: 10px;
+    }
+
+    #nav-logo img {
+        height: 80px; /* Adjust logo size */
+        margin: 0 auto;
+        display: block;
+    }
+
+    #nav-btn {
+        flex-direction: column; /* Vertical menu */
+        align-items: center; /* Center items */
+        width: 100%;  /* Nav takes full width */
+        right: auto; /* Reset right positioning */
+        top: auto;
+        margin-top: 10px;
+        justify-content: center;
+    }
+
+    #nav-btn ul {
+        flex-direction: column; /* Stack list items */
+        width: 100%;
+    }
+    #nav-btn li{
+        flex: auto;
+    }
+    #nav-btn ul li a{
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+    #nav-btn li:hover > a i {
+        transform: rotate(0deg); /* Reset icon rotation on mobile */
+    }
+
+    .submenu {
+        position: relative; /* Submenu relative to the list item */
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: none; /* Initially hidden */
+    }
+
+    #nav-btn li:hover .submenu {
+        display: block; /* Show on hover */
+    }
+
+    /* Dialogue, Preference, Favourite Sections */
+    .dialogue, .Preference, .favourite {
+        flex-direction: column; /* Stack content vertically */
+        height: auto; /* Allow content to determine height */
+        padding: 20px;
+    }
+
+    .dialogue > div, .Preference > div, #comment {
+        margin-bottom: 20px; /* Space between sections */
+    }
+
+    .dialogue img, .Reason img {
+        max-width: 100%; /* Make image responsive */
+        height: auto;
+        display: block;
+        margin: 10px auto; /* Center image */
+    }
+
+    #comment h1 {
+        position: relative; /* Remove absolute positioning */
+        left: auto; /* Reset left */
+        text-align: center; /* Center the heading */
+        font-size: 1.5em; /* Adjust font size for mobile */
+        margin-bottom: 10px;
+    }
+
+    /* Polls */
+    .polls {
+        padding: 20px; /* Adjust padding */
+    }
+
+    .poll-container {
+        flex-direction: column; /* Stack polls vertically */
+        width: 90%; /* Take up most of the screen width */
+        height: auto; /* Let the content determine the height */
+    }
+
+    .poll {
+        width: 100%; /* Each poll takes full width */
+        margin-bottom: 10px; /* Space between polls */
+    }
+
+    /* Footer */
+    .footer {
+        height: auto; /* Allow the content to determine the height */
+        padding: 10px;
+        flex-direction: column; /* Stack footer elements */
+        text-align: center; /* Center text in footer */
+    }
+
+    .construct {
+        flex-direction: column; /* Stack social icons */
+        margin-bottom: 10px; /* Space between social icons and bottom section */
+    }
+
+    .socialicons {
+        justify-content: center; /* Center social icons */
+    }
+
+    .footerbottom {
+        text-align: center; /* Center text in footer bottom section */
+    }
+    .Reason img{
+        width: auto;
+    }
 }

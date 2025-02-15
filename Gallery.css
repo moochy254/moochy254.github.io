@@ -1,3 +1,14 @@
+body {
+    font-family: 'Roboto', sans-serif; /* Example for body text */
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif; /* Example for headings */
+}
+
+p {
+    font-family: 'Open Sans', sans-serif; /* Example for paragraphs */
+}
 .body{
     margin-top: 0%;
     margin-left: 0%;
@@ -38,7 +49,7 @@
     -moz-animation: spin 0.5s linear infinite;
     animation: spin 7s ease-in-out alternate-reverse infinite;
 }
-@-webkit-keyframes spin{
+@keyframes spin{
     100%{-webkit-transform: rotate(360deg);}
 }
 #nav-btn{
@@ -50,7 +61,7 @@
     margin-top: 0%;
     justify-items: center;
     float: inline-end;
-    justify-content:space between;
+    justify-content:space-between;
 }
 #nav-btn ul{
     list-style: none;
@@ -64,6 +75,18 @@
 }
 #nav-btn ul li{
     flex: 10px;
+    position: relative;
+}
+#nav-btn ul li a{
+    display: flex; /* Use flexbox to align icon */
+    align-items: center; /* Vertically center icon */
+}
+#nav-btn li a i { /* Style the dropdown icon */
+    margin-left: 5px; /* Space between text and icon */
+    transition: transform 0.4s ease; /* Smooth rotation */
+}
+#nav-btn li:hover > a i {  /* > selects direct child */
+    transform: rotate(90deg);
 }
 #nav-btn ul li::after{
     content: '';
@@ -77,6 +100,39 @@
 #nav-btn ul li:hover::after{
     width: 100%;  
 }
+#nav-btn .submenu{
+    display: none; /* Hidden by default */
+    position: absolute; /* Absolute positioning within the li */
+    top: 100%; /* Position below the parent li */
+    left: 0; /* Align with the left edge of the li */
+    background-color: black; /* Submenu background color */
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1; /* Ensure it's above other content */
+    white-space: nowrap; /* Prevent wrapping of submenu items */
+
+}
+.submenu ul {
+    list-style: none;
+    display: block; /* Vertical list in submenu */
+}
+.submenu li {
+    margin: 5px 0; /* Spacing between submenu items */
+}
+.submenu a {
+    color: white;
+    text-decoration: none;
+    display: block; /* Make links fill the width of the submenu */
+    padding: 5px; /* Add some padding to submenu links */
+}
+#nav-btn li:hover .submenu {
+    display: block;
+}
+.submenu a:hover {
+    background-color:black; /* Example hover background */
+    color: lightgray;
+}
+
 .dialogue{
     height: 690px;
     display: flex;
@@ -138,4 +194,136 @@
     letter-spacing: 1px;
     font-weight: 400;
     margin: 0px 5px;
+}
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+
+    .body {
+        /* If you need any specific mobile body styles, add them here */
+    }
+
+    .nav-bar {
+        height: auto;
+        padding: 10px;
+        border-radius: 0; /* Optional: Remove rounded corners on mobile */
+    }
+
+    #navigation {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 10px;
+        border-radius: 0; /* Optional */
+    }
+
+    #nav-items {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    #nav-logo {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    #nav-logo img {
+        height: 80px; /* Adjust logo size as needed */
+        margin: 0 auto;
+        display: block;
+        padding: 10px; /* Adjust padding as needed */
+    }
+
+    #nav-btn {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        right: auto;
+        top: auto;
+        margin-top: 10px;
+        justify-content: center;
+    }
+
+    #nav-btn ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #nav-btn ul li {
+        flex: auto; /* Ensure list items take available width */
+    }
+
+    #nav-btn ul li a {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        display: flex; /* Maintain flexbox for icon alignment */
+        align-items: center; /* Vertically center icon */
+        justify-content: center; /* Center text and icon */
+    }
+
+    #nav-btn li:hover > a i {
+        transform: rotate(0deg); /* Reset icon rotation on mobile */
+    }
+
+    .submenu {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: none; /* Initially hidden */
+    }
+
+    #nav-btn li:hover .submenu {
+        display: block; /* Show on hover */
+    }
+
+    .dialogue, .Preference, .favourite {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .dialogue > div, .Preference > div, #comment {
+        margin-bottom: 20px;
+    }
+
+    .dialogue img, .Reason img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 10px auto;
+    }
+
+    #comment h1 {
+        position: relative;
+        left: auto;
+        text-align: center;
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .footer {
+        height: auto;
+        padding: 10px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .construct {
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .socialicons {
+        justify-content: center;
+    }
+    .socialicons a{
+        margin: 5px; /* Adjust spacing as needed */
+    }
+
+
+    .footerbottom {
+        text-align: center;
+    }
 }

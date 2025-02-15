@@ -1,3 +1,14 @@
+body {
+    font-family: 'Roboto', sans-serif; /* Example for body text */
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif; /* Example for headings */
+}
+
+p {
+    font-family: 'Open Sans', sans-serif; /* Example for paragraphs */
+}
 .body{
     margin-top: 0%;
     margin-left: 0%;
@@ -24,6 +35,10 @@
 #nav-items{
     height: 143px;
     align-items: center;
+    width: 100%; /* Make sure it takes full width */
+    justify-content: space-between; /* Distribute space between logo and nav */
+    
+    
 }
 #nav-logo{
     display: flex;
@@ -38,7 +53,7 @@
     -moz-animation: spin 0.5s linear infinite;
     animation: spin 7s ease-in-out alternate-reverse infinite;
 }
-@-webkit-keyframes spin{
+@keyframes spin{
     100%{-webkit-transform: rotate(360deg);}
 }
 #nav-btn{
@@ -53,9 +68,8 @@
     justify-content:space-between;
 }
 #nav-btn ul{
-    list-style: none;
-    color: white;
-    text-decoration: none;
+    display: flex;
+    flex-direction: row;
 }
 #nav-btn ul a{
     list-style: none;
@@ -64,6 +78,18 @@
 }
 #nav-btn ul li{
     flex: 10px;
+    position: relative;
+}
+#nav-btn ul li a{
+    display: flex; /* Use flexbox to align icon */
+    align-items: center; /* Vertically center icon */
+}
+#nav-btn li a i { /* Style the dropdown icon */
+    margin-left: 5px; /* Space between text and icon */
+    transition: transform 0.4s ease; /* Smooth rotation */
+}
+#nav-btn li:hover > a i {  /* > selects direct child */
+    transform: rotate(90deg);
 }
 #nav-btn ul li::after{
     content: '';
@@ -77,6 +103,39 @@
 #nav-btn ul li:hover::after{
     width: 100%;  
 }
+#nav-btn .submenu{
+    display: none; /* Hidden by default */
+    position: absolute; /* Absolute positioning within the li */
+    top: 100%; /* Position below the parent li */
+    left: 0; /* Align with the left edge of the li */
+    background-color: black; /* Submenu background color */
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1; /* Ensure it's above other content */
+    white-space: nowrap; /* Prevent wrapping of submenu items */
+
+}
+.submenu ul {
+    list-style: none;
+    display: block; /* Vertical list in submenu */
+}
+.submenu li {
+    margin: 5px 0; /* Spacing between submenu items */
+}
+.submenu a {
+    color: white;
+    text-decoration: none;
+    display: block; /* Make links fill the width of the submenu */
+    padding: 5px; /* Add some padding to submenu links */
+}
+#nav-btn li:hover .submenu {
+    display: block;
+}
+.submenu a:hover {
+    background-color:black; /* Example hover background */
+    color: lightgray;
+}
+
 .dialogue{
     height: 690px;
     display: flex;
@@ -88,6 +147,9 @@
     color: antiquewhite;
 }
 .dialogue img{
+    height: auto;
+    display: block; /* Prevent image from creating extra space */
+    margin: 0 auto; /* Center the images */
     border-top-left-radius: 29px;
     border-top-right-radius: 29px;
     border-bottom-right-radius: 29px;
@@ -99,19 +161,17 @@
     height: 600px;
     color: antiquewhite;
 }
-.Reason img{
-    width: 100%;
-    position: relative;
-    right: 10px;
-    border-top-left-radius: 29px;
-    border-top-right-radius: 29px;
-    border-bottom-right-radius: 29px;
-    border-bottom-left-radius: 29px;
-
+.Preference img {
+    width: auto;
+    height: auto;
+    display: block; /* Prevent image from creating extra space */
+    margin: 0 auto; /* Center the images */
 }
-#Reason{
-    width:max-content;
-    left: 25%;
+.Reason img {
+    border-radius: 29px;
+    margin-top: 10px;
+    width: 673px; 
+    height: auto; 
 }
 .favourite{
     height: 500px;
@@ -124,37 +184,93 @@
     position: absolute;
     color: antiquewhite;
     border-top: 0px;
-    left: 310px;
+    left: 500px;
 }
 .commentunder{
     visibility: hidden;
     padding-top: 20px;
     height: 60px;
 }
-.polls{
-    height: 100px;
-    padding-top: 100px;
-    padding-left: 50px;
-    padding-bottom: 20px;
-    padding-right: 50px;
-}
-.poll{
-    height: 100%;
-    width: 50%-100%;
-    border: 5px;
-    background-color: white;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-.poll:hover{
-    background-color: rgb(255, 170, 0);
-}
-.poll:active{
-    transform: translateY(4px);
+.polls {
+    padding: 100px 50px 20px;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange vertically */
+    align-items: center; /* Center horizontally */
 }
 
+.poll-container {
+    display: flex; /* Arrange polls horizontally */
+    width: 500px; /* Set a fixed width for the container */
+    height: 100px;
+    border-radius: 10px;
+    overflow: hidden; /* Hide overflowing poll bars */
+    border: 5px solid white; /* Add border to container */
+    cursor: pointer;
+}
+
+.poll {
+    position: relative; /* Needed for positioning labels */
+    height: 100%;
+    width: 50%; /* Each poll takes 50% of the container */
+    background-color: white;
+    position: relative; /* For positioning the count */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+.poll:hover {
+    background-color: rgb(255, 170, 0);
+}
+.poll-label {
+    position: absolute;
+    top: 10px; /* Adjust vertical position */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    color: black;
+    font-weight: bold;
+    white-space: nowrap; /* Prevent label from wrapping */
+}
+
+
+.poll-inner {
+    height: 100%;
+    width: 0%; /* Initial width (adjust as needed) */
+    background-color: lightgray; /* Color of the poll bar */
+    border-radius: 10px; /* Inherit from parent */
+    transition: width 0.5s ease-in-out; /* Smooth animation */
+
+}
+
+.poll-count {
+    position: absolute;
+    top: auto;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the count */
+    color: black;
+    font-weight: bold;
+}
+
+/* Style the buttons */
+.polls button {
+    display: none;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: rgb(255, 170, 0);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.polls button:hover {
+    background-color: rgb(200, 130, 0);
+}
+#feedback-message {
+    margin-top: 20px;
+    text-align: center;
+    color: antiquewhite; /* Or any color you prefer */
+}
 #comment p{
     position: absolute;
     color: antiquewhite;
@@ -210,4 +326,83 @@
     letter-spacing: 1px;
     font-weight: 400;
     margin: 0px 5px;
+}
+.menu-toggle { /* Hamburger menu styles */
+    display: none; /* Hidden by default on larger screens */
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    cursor: pointer;
+    z-index: 2; /* Ensure it's above the nav */
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: 0.3s; /* Smooth animation */
+}
+
+.menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Styles for smaller screens */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show hamburger icon */
+    }
+
+    #nav-btn {
+        display: flex;
+        flex-direction: column; /* Stack vertically */
+        position: fixed; /* Fixed positioning for the menu */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent background */
+        z-index: 1; /* Ensure menu is above other content */
+        align-items: center; /* Center the menu items */
+        justify-content: center; /* Vertically center */
+        transition: transform 0.3s ease-in-out; /* Smooth transition */
+        transform: translateY(-100%); /* Hide off-screen initially */
+    }
+
+    #nav-btn.mobile-hidden { /* Class to hide the menu */
+        transform: translateY(-100%);
+    }
+
+    #nav-btn.active {
+        transform: translateY(0); /* Show menu when active */
+
+    }
+        #nav-btn ul{
+            display: flex;
+            flex-direction: column;
+        }
+    #nav-btn li {
+        margin: 10px 0; /* Space between menu items */
+    }
+    #nav-btn .submenu{
+        position: relative;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        display: none;
+        background-color: rgba(0, 0, 0, 0.9);
+        border-radius: 0;
+    }
+    #nav-btn li:hover .submenu{
+        display: block;
+    }
 }
